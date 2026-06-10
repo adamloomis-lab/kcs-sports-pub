@@ -1,0 +1,384 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Anton: heavy condensed varsity display (matches the slab logo lettering).
+     Space Grotesk: techy "scoreboard" labels and stats.
+     Work Sans: clean, legible body. */
+  --font-display: 'Anton', ui-sans-serif, system-ui, sans-serif;
+  --font-cond: 'Space Grotesk', ui-monospace, monospace;
+  --font-body: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Near-black base, the dark game-night mood (from the Stitch design) */
+  --color-pitch: #131313;
+  --color-pitch-2: #1c1b1b;
+  --color-pitch-3: #20201f;
+  --color-pitch-4: #2a2a2a;
+  --color-pitch-deep: #0e0e0e;
+
+  /* Light type on the dark base */
+  --color-chalk: #e5e2e1;
+  --color-chalk-dim: #c5c6cf;
+  --color-chalk-faint: #8f9099;
+
+  /* Scoreboard red, primary accent / CTA (logo outline red) */
+  --color-crimson: #ba032a;
+  --color-crimson-dark: #92001e;
+  --color-crimson-light: #ffb3b2;
+  --color-on-crimson: #ffffff;
+
+  /* Championship gold, secondary accent (logo stars / tagline rule) */
+  --color-gold: #e9c349;
+  --color-gold-dark: #cca730;
+  --color-on-gold: #3c2f00;
+
+  /* Varsity navy, the logo's letter fill; panels + cool accents */
+  --color-navy: #0a1f44;
+  --color-navy-2: #1d2f55;
+  --color-navy-light: #b4c6f4;
+
+  /* Lines / outlines on dark */
+  --color-line: #44464e;
+  --color-line-soft: #2e2f35;
+
+  --color-error: #ffb4ab;
+
+  /* Type scale */
+  --text-display-xl: 88px;
+  --text-display-xl--line-height: 0.92;
+  --text-display-xl--letter-spacing: 0.015em;
+  --text-display-xl--font-weight: 400;
+  --text-display-lg: 60px;
+  --text-display-lg--line-height: 0.96;
+  --text-display-lg--font-weight: 400;
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 1.0;
+  --text-display-lg-mobile--font-weight: 400;
+  --text-headline-lg: 33px;
+  --text-headline-lg--line-height: 1.08;
+  --text-headline-lg--font-weight: 400;
+  --text-headline-md: 26px;
+  --text-headline-md--line-height: 1.12;
+  --text-headline-md--font-weight: 400;
+  --text-headline-sm: 21px;
+  --text-headline-sm--line-height: 1.25;
+  --text-headline-sm--font-weight: 400;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.7;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.7;
+  --text-label-lg: 13px;
+  --text-label-lg--line-height: 1.2;
+  --text-label-lg--letter-spacing: 0.2em;
+  --text-label-lg--font-weight: 700;
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 1.2;
+  --text-label-sm--letter-spacing: 0.22em;
+  --text-label-sm--font-weight: 700;
+
+  --spacing-section-gap: 96px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 56px;
+
+  --radius-DEFAULT: 2px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-pitch);
+    /* Subtle carbon-weave texture under everything (from the Stitch design) */
+    background-image:
+      radial-gradient(circle, rgba(255, 255, 255, 0.022) 1px, transparent 1.5px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.014) 1px, transparent 1.5px);
+    background-size: 22px 22px, 22px 22px;
+    background-position: 0 0, 11px 11px;
+    color: var(--color-chalk);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Clear the sticky mobile call bar so the footer is never hidden behind it. */
+  @media (max-width: 1023px) {
+    body { padding-bottom: 52px; }
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    line-height: 1.04;
+    font-weight: 400;
+  }
+  a, button:not(:disabled), [role='button'] {
+    cursor: pointer;
+  }
+  ::selection {
+    background-color: var(--color-crimson);
+    color: var(--color-on-crimson);
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: var(--spacing-margin-mobile);
+  }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: var(--spacing-margin-desktop);
+    }
+  }
+
+  /* Uppercase tracked label, used for kicker captions */
+  .kicker {
+    font-family: var(--font-cond);
+    font-size: var(--text-label-lg);
+    letter-spacing: var(--text-label-lg--letter-spacing);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  /* Angled red chip behind kickers (hero "game day" badge) */
+  .badge-chip {
+    display: inline-block;
+    background-color: var(--color-crimson);
+    color: var(--color-on-crimson);
+    font-family: var(--font-cond);
+    font-size: var(--text-label-lg);
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-style: italic;
+    padding: 0.35rem 1rem;
+  }
+
+  /* Thin gold rule under section headings */
+  .gold-rule {
+    display: inline-block;
+    width: 72px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+  }
+
+  .check-list li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  .check-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 9999px;
+    background-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(233, 195, 73, 0.18);
+  }
+
+  /* Slightly lifted dark panel for cards on the pitch-black base */
+  .panel {
+    background-color: var(--color-pitch-3);
+    border: 2px solid var(--color-line-soft);
+  }
+  .panel-hover {
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .panel-hover:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+  }
+
+  /* Scoreboard block: black inset with mono-spaced gold rows */
+  .scoreboard {
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 2px solid var(--color-gold);
+    font-family: var(--font-cond);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .steel-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-line-soft) 12%,
+      var(--color-line-soft) 88%,
+      transparent
+    );
+  }
+
+  /* Legal / policy page prose */
+  .legal-prose h2 {
+    font-family: var(--font-cond);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--color-chalk);
+    margin-top: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal-prose h2:first-child {
+    margin-top: 0;
+  }
+  .legal-prose a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-prose ul {
+    list-style: disc;
+    padding-left: 1.4rem;
+  }
+  .legal-prose ul li {
+    margin-top: 0.4rem;
+  }
+  .legal-prose strong {
+    color: var(--color-chalk);
+    font-weight: 600;
+  }
+}
+
+/* Gold accent word in display headings */
+.gold-word {
+  color: var(--color-gold);
+}
+/* Outlined transparent display text ("KICKOFF?" treatment from the design) */
+.text-stroke-gold {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-gold);
+}
+
+/* Primary CTA: hard gold inset keyline that brightens on hover */
+.varsity-cta {
+  box-shadow: inset 0 0 0 2px var(--color-gold);
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.varsity-cta:hover {
+  box-shadow: inset 0 0 0 2px var(--color-gold), 0 0 22px rgba(233, 195, 73, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Angled hero bottom edge (the design's hero-clip) */
+.hero-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+/* Dark vignette so hero text stays legible over video */
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(19, 19, 19, 0.88) 0%,
+      rgba(19, 19, 19, 0.62) 38%,
+      rgba(19, 19, 19, 0.3) 68%,
+      rgba(19, 19, 19, 0.16) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(19, 19, 19, 0.5) 0%,
+      transparent 28%,
+      transparent 60%,
+      rgba(19, 19, 19, 0.92) 100%
+    );
+}
+@media (max-width: 767px) {
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(19, 19, 19, 0.8) 0%,
+        rgba(19, 19, 19, 0.55) 60%,
+        rgba(19, 19, 19, 0.4) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(19, 19, 19, 0.5) 0%,
+        rgba(19, 19, 19, 0.2) 30%,
+        transparent 55%,
+        rgba(19, 19, 19, 0.92) 100%
+      );
+  }
+}
+/* Heavier even scrim for short section-header banners */
+.smoke-overlay {
+  background: radial-gradient(
+    120% 100% at 50% 0%,
+    rgba(14, 14, 14, 0.55) 0%,
+    rgba(14, 14, 14, 0.8) 60%,
+    rgba(14, 14, 14, 0.97) 100%
+  );
+}
+
+/* Scrolling ticker band (the design's scoreboard marquee) */
+.ticker {
+  animation: kc-ticker 32s linear infinite;
+  will-change: transform;
+}
+@keyframes kc-ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker { animation: none; }
+}
+
+/* Slow Ken Burns drift on dark hero / section media */
+.kenburns {
+  animation: kc-kenburns 32s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+@keyframes kc-kenburns {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to { transform: scale(1.14) translate3d(0, -1.5%, 0); }
+}
+
+/* Parallax: useParallax writes --p (0..1 viewport progress); element drifts. */
+.parallax {
+  transform: translate3d(0, calc((var(--p, 0.5) - 0.5) * 2 * var(--p-amt, 28px)), 0);
+  will-change: transform;
+}
+
+/* ---- Scroll-reveal + entrance motion ---------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: kc-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .rise-1 { animation-delay: 0.08s; }
+  .rise-2 { animation-delay: 0.2s; }
+  .rise-3 { animation-delay: 0.32s; }
+  .rise-4 { animation-delay: 0.44s; }
+  .rise-5 { animation-delay: 0.56s; }
+  @keyframes kc-rise {
+    from { opacity: 0; transform: translateY(22px); filter: blur(3px); }
+    to { opacity: 1; transform: none; filter: blur(0); }
+  }
+
+  .reveal-ready .reveal,
+  .reveal-ready .reveal-group > * {
+    opacity: 0;
+    transform: translateY(26px) scale(0.985);
+    filter: blur(3px);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+  }
+  .reveal-ready .reveal.is-visible,
+  .reveal-ready .reveal-group.is-visible > * {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(6) { transition-delay: 0.5s; }
+}
