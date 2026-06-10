@@ -18,10 +18,10 @@ function TickerRow() {
     <>
       {tickerItems.map((t) => (
         <div key={t.label + t.value} className="flex shrink-0 items-center gap-4">
-          <span className="font-cond text-label-lg font-bold uppercase tracking-[0.2em] text-on-gold">
+          <span className="font-cond text-label-lg font-bold uppercase tracking-[0.2em] text-white/80">
             {t.label}
           </span>
-          <span className="bg-pitch px-3 py-1 font-cond font-bold tracking-[0.1em] text-gold">
+          <span className="bg-pitch-deep px-3 py-1 font-cond font-bold tracking-[0.1em] text-gold">
             {t.value}
           </span>
         </div>
@@ -87,7 +87,7 @@ export default function Home() {
 
       {/* ------------------------------------------------ Scoreboard ticker */}
       <div
-        className="overflow-hidden border-y-4 border-pitch bg-gold py-3.5"
+        className="overflow-hidden border-y-4 border-pitch-deep bg-crimson py-3.5"
         aria-label="This week at KC's"
       >
         <div className="ticker flex w-max items-center gap-12 pr-12">
@@ -196,7 +196,7 @@ export default function Home() {
             <span className="text-stroke-gold">Kickoff?</span>
           </h2>
           <div className="reveal mt-10 flex flex-col items-center justify-center gap-6 md:flex-row">
-            <Button href={company.phoneHref} variant="gold" className="px-12 py-6">
+            <Button href={company.phoneHref} variant="crimson" className="px-12 py-6">
               <Phone size={16} /> Call {company.phone}
             </Button>
             <p className="text-body-lg uppercase tracking-[0.2em] text-chalk-dim">

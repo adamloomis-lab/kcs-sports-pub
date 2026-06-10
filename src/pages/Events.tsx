@@ -100,21 +100,20 @@ export default function Events() {
         </div>
       </section>
 
-      {/* ------------------------------------------------ Plan your party */}
+      {/* ------------------------------------------------ Call CTA */}
       <section className="container-x py-20 text-center md:py-28">
         <h2 className="reveal font-display text-display-lg-mobile text-white md:text-[56px]">
-          Plan Your <span className="text-stroke-gold">Party</span>
+          See You <span className="text-stroke-gold">Tonight?</span>
         </h2>
         <p className="reveal mx-auto mt-5 max-w-xl text-body-lg text-chalk-dim">
-          Birthdays, watch parties, league nights, tell us what you're planning and we'll make the
-          bar feel like it's yours.
+          Wondering what's on the screens or the specials board? One call answers everything.
         </p>
         <div className="reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button href="/contact" variant="gold" className="px-10">
-            Send A Party Inquiry
+          <Button href={company.phoneHref} variant="crimson" className="px-10">
+            <Phone size={16} /> Call {company.phone}
           </Button>
-          <Button href={company.phoneHref} variant="outline">
-            <Phone size={16} /> {company.phone}
+          <Button href="/contact" variant="outline">
+            Hours &amp; Directions
           </Button>
         </div>
         <p className="reveal mt-6 text-sm uppercase tracking-[0.18em] text-chalk-faint">

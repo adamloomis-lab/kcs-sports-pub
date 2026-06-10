@@ -13,16 +13,13 @@ export default function Privacy() {
 
       <h2>Information We Collect</h2>
       <p>
-        We only collect the information you choose to give us. If you use the party inquiry form on
-        our Site, we receive the name, phone number, email address, and message you submit so we
-        can respond to your inquiry. Our hosting provider may also log standard technical data
-        (such as your browser type and IP address) for security and analytics, as is common for
-        most websites.
+        This Site doesn't ask you to submit any personal information, there are no forms or
+        accounts. Our hosting provider may log standard technical data (such as your browser type
+        and IP address) for security and analytics, as is common for most websites.
       </p>
 
       <h2>How We Use It</h2>
       <ul>
-        <li>To respond to your questions, party inquiries, and other messages.</li>
         <li>To operate, maintain, and improve the Site.</li>
         <li>To protect against fraud, spam, and abuse.</li>
       </ul>

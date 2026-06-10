@@ -3,30 +3,30 @@
 @theme {
   /* Anton: heavy condensed varsity display (matches the slab logo lettering).
      Space Grotesk: techy "scoreboard" labels and stats.
-     Work Sans: clean, legible body. */
+     Barlow: sturdy, highly legible body. */
   --font-display: 'Anton', ui-sans-serif, system-ui, sans-serif;
   --font-cond: 'Space Grotesk', ui-monospace, monospace;
-  --font-body: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Barlow', ui-sans-serif, system-ui, sans-serif;
 
-  /* Near-black base, the dark game-night mood (from the Stitch design) */
-  --color-pitch: #131313;
-  --color-pitch-2: #1c1b1b;
-  --color-pitch-3: #20201f;
-  --color-pitch-4: #2a2a2a;
-  --color-pitch-deep: #0e0e0e;
+  /* Deep navy base, pulled from the logo's letter fill */
+  --color-pitch: #0a132b;
+  --color-pitch-2: #101b3a;
+  --color-pitch-3: #142146;
+  --color-pitch-4: #1c2b56;
+  --color-pitch-deep: #060d1f;
 
-  /* Light type on the dark base */
-  --color-chalk: #e5e2e1;
-  --color-chalk-dim: #c5c6cf;
-  --color-chalk-faint: #8f9099;
+  /* Light type on the navy base */
+  --color-chalk: #eceef5;
+  --color-chalk-dim: #c6cdde;
+  --color-chalk-faint: #8e97b2;
 
   /* Scoreboard red, primary accent / CTA (logo outline red) */
-  --color-crimson: #ba032a;
+  --color-crimson: #c41230;
   --color-crimson-dark: #92001e;
   --color-crimson-light: #ffb3b2;
   --color-on-crimson: #ffffff;
 
-  /* Championship gold, secondary accent (logo stars / tagline rule) */
+  /* Championship gold, small tertiary accent (logo stars / tagline rule) */
   --color-gold: #e9c349;
   --color-gold-dark: #cca730;
   --color-on-gold: #3c2f00;
@@ -36,9 +36,13 @@
   --color-navy-2: #1d2f55;
   --color-navy-light: #b4c6f4;
 
+  /* Header (white chrome so the logo pops) */
+  --color-paper: #ffffff;
+  --color-ink: #0a1f44;
+
   /* Lines / outlines on dark */
-  --color-line: #44464e;
-  --color-line-soft: #2e2f35;
+  --color-line: #3a4670;
+  --color-line-soft: #243155;
 
   --color-error: #ffb4ab;
 
@@ -62,10 +66,10 @@
   --text-headline-sm: 21px;
   --text-headline-sm--line-height: 1.25;
   --text-headline-sm--font-weight: 400;
-  --text-body-lg: 18px;
-  --text-body-lg--line-height: 1.7;
-  --text-body-md: 16px;
-  --text-body-md--line-height: 1.7;
+  --text-body-lg: 20px;
+  --text-body-lg--line-height: 1.65;
+  --text-body-md: 17.5px;
+  --text-body-md--line-height: 1.65;
   --text-label-lg: 13px;
   --text-label-lg--line-height: 1.2;
   --text-label-lg--letter-spacing: 0.2em;
@@ -93,7 +97,7 @@
     background-position: 0 0, 11px 11px;
     color: var(--color-chalk);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 17.5px;
     font-weight: 400;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -275,17 +279,17 @@
   background:
     linear-gradient(
       90deg,
-      rgba(19, 19, 19, 0.88) 0%,
-      rgba(19, 19, 19, 0.62) 38%,
-      rgba(19, 19, 19, 0.3) 68%,
-      rgba(19, 19, 19, 0.16) 100%
+      rgba(10, 19, 43, 0.88) 0%,
+      rgba(10, 19, 43, 0.62) 38%,
+      rgba(10, 19, 43, 0.3) 68%,
+      rgba(10, 19, 43, 0.16) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(19, 19, 19, 0.5) 0%,
+      rgba(10, 19, 43, 0.5) 0%,
       transparent 28%,
       transparent 60%,
-      rgba(19, 19, 19, 0.92) 100%
+      rgba(10, 19, 43, 0.92) 100%
     );
 }
 @media (max-width: 767px) {
@@ -293,16 +297,16 @@
     background:
       linear-gradient(
         90deg,
-        rgba(19, 19, 19, 0.8) 0%,
-        rgba(19, 19, 19, 0.55) 60%,
-        rgba(19, 19, 19, 0.4) 100%
+        rgba(10, 19, 43, 0.8) 0%,
+        rgba(10, 19, 43, 0.55) 60%,
+        rgba(10, 19, 43, 0.4) 100%
       ),
       linear-gradient(
         180deg,
-        rgba(19, 19, 19, 0.5) 0%,
-        rgba(19, 19, 19, 0.2) 30%,
+        rgba(10, 19, 43, 0.5) 0%,
+        rgba(10, 19, 43, 0.2) 30%,
         transparent 55%,
-        rgba(19, 19, 19, 0.92) 100%
+        rgba(10, 19, 43, 0.92) 100%
       );
   }
 }
@@ -310,9 +314,9 @@
 .smoke-overlay {
   background: radial-gradient(
     120% 100% at 50% 0%,
-    rgba(14, 14, 14, 0.55) 0%,
-    rgba(14, 14, 14, 0.8) 60%,
-    rgba(14, 14, 14, 0.97) 100%
+    rgba(6, 13, 31, 0.55) 0%,
+    rgba(6, 13, 31, 0.8) 60%,
+    rgba(6, 13, 31, 0.97) 100%
   );
 }
 

@@ -234,7 +234,7 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/contact':
       return {
         title: "Contact & Hours | KC's Sports Bar, Wadsworth OH",
-        description: `Find KC's Sports Bar at ${company.addressOneLine}. Open every day 10am to 2:30am. Directions, parking and party inquiries. Call ${company.phone}.`,
+        description: `Find KC's Sports Bar at ${company.addressOneLine}. Open every day 10am to 2:30am. Map, directions and hours. Call ${company.phone}.`,
         canonical: pageUrl('/contact'),
         ogImage,
         jsonLd: [

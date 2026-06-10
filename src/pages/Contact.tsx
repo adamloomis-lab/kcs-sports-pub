@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react'
-import type { FormEvent } from 'react'
-import { MapPin, Phone, MessageSquare, Facebook, Instagram, Check, Plus } from 'lucide-react'
+import { useState } from 'react'
+import { MapPin, Phone, Facebook, Instagram, Plus, Clock } from 'lucide-react'
 import { company } from '../data/site'
 import { faqs } from '../lib/seo'
 import HoursList from '../components/HoursList'
+import Button from '../components/Button'
 
 // Interactive FAQ accordion, each question expands in place.
 function FaqAccordion() {
@@ -46,61 +46,44 @@ function FaqAccordion() {
   )
 }
 
-const encode = (data: Record<string, string>) =>
-  Object.keys(data)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
-    .join('&')
-
 export default function Contact() {
-  const [sent, setSent] = useState(false)
-  const [error, setError] = useState(false)
-  const [firstName, setFirstName] = useState('')
-  const formCardRef = useRef<HTMLDivElement>(null)
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setError(false)
-    const form = e.currentTarget
-    const data = Object.fromEntries(new FormData(form) as never) as Record<string, string>
-    try {
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'party-inquiry', ...data }),
-      })
-      if (!res.ok) throw new Error()
-      setFirstName((data.name || '').trim().split(/\s+/)[0] || '')
-      setSent(true)
-      form.reset()
-      requestAnimationFrame(() =>
-        formCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }),
-      )
-    } catch {
-      setError(true)
-    }
-  }
-
-  const field =
-    'w-full rounded border-2 border-line-soft bg-pitch-2 px-4 py-3.5 text-body-md text-chalk placeholder:text-chalk-faint focus:border-gold focus:outline-none'
-
   return (
     <>
       {/* ---------- HEADER ---------- */}
       <section className="relative overflow-hidden border-b-2 border-line-soft bg-pitch-deep">
-        <div className="container-x relative z-10 pt-40 pb-16 text-center">
+        <div className="container-x relative z-10 pt-44 pb-16 text-center">
           <p className="kicker">On Main Street, Wadsworth</p>
           <h1 className="mt-3 font-display text-display-lg-mobile text-chalk md:text-[56px]">
             Visit &amp; Contact
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-body-lg text-chalk-dim">
-            Find us on the south end of Main Street. Call ahead, send a party inquiry, or just walk
-            in, the door's open until 2:30am every night.
+            Find us on the south end of Main Street. The best way to reach us is a phone call, or
+            just walk in, the door's open until 2:30am every night.
           </p>
         </div>
       </section>
 
-      {/* ---------- DETAILS + FORM ---------- */}
-      <section className="py-20 md:py-28">
+      {/* ---------- CALL CTA ---------- */}
+      <section className="container-x py-16 md:py-20">
+        <div className="reveal mx-auto max-w-3xl border-2 border-crimson bg-pitch-2 p-10 text-center md:p-14">
+          <p className="kicker">One number does it all</p>
+          <h2 className="mt-3 font-display text-headline-lg text-chalk md:text-[44px]">
+            Give The Bar A Ring
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-body-md text-chalk-dim">
+            Today's specials, what's on the kitchen board, who's playing on the big screens, the
+            bar has the answer.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Button href={company.phoneHref} variant="crimson" className="px-12 py-6 text-[16px]">
+              <Phone size={20} /> {company.phone}
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- DETAILS + HOURS ---------- */}
+      <section className="pb-16 md:pb-24">
         <div className="container-x grid gap-14 lg:grid-cols-2">
           {/* Details */}
           <div className="reveal">
@@ -110,7 +93,7 @@ export default function Contact() {
 
             <ul className="mt-8 space-y-5 text-body-md">
               <li className="flex items-start gap-4">
-                <MapPin size={20} className="mt-0.5 shrink-0 text-gold" />
+                <MapPin size={22} className="mt-0.5 shrink-0 text-gold" />
                 <a
                   href={company.mapsDir}
                   target="_blank"
@@ -121,19 +104,13 @@ export default function Contact() {
                 </a>
               </li>
               <li className="flex items-start gap-4">
-                <Phone size={20} className="mt-0.5 shrink-0 text-gold" />
+                <Phone size={22} className="mt-0.5 shrink-0 text-gold" />
                 <a href={company.phoneHref} className="text-chalk-dim hover:text-gold">
                   {company.phone}
                 </a>
               </li>
               <li className="flex items-start gap-4">
-                <MessageSquare size={20} className="mt-0.5 shrink-0 text-gold" />
-                <a href={company.smsHref} className="text-chalk-dim hover:text-gold">
-                  Text us at {company.phone}
-                </a>
-              </li>
-              <li className="flex items-start gap-4">
-                <Facebook size={20} className="mt-0.5 shrink-0 text-gold" />
+                <Facebook size={22} className="mt-0.5 shrink-0 text-gold" />
                 <a
                   href={company.social.facebook}
                   target="_blank"
@@ -144,7 +121,7 @@ export default function Contact() {
                 </a>
               </li>
               <li className="flex items-start gap-4">
-                <Instagram size={20} className="mt-0.5 shrink-0 text-gold" />
+                <Instagram size={22} className="mt-0.5 shrink-0 text-gold" />
                 <a
                   href={company.social.instagram}
                   target="_blank"
@@ -154,109 +131,26 @@ export default function Contact() {
                   @kcs_sports_pub
                 </a>
               </li>
+              <li className="flex items-start gap-4">
+                <Clock size={22} className="mt-0.5 shrink-0 text-gold" />
+                <span className="text-chalk-dim">
+                  Takeout available, call ahead and it's ready when you are
+                </span>
+              </li>
             </ul>
+          </div>
 
-            <div className="panel mt-10 rounded p-5">
-              <h3 className="px-3 font-cond text-headline-sm font-bold uppercase text-gold">Hours</h3>
-              <HoursList className="mt-3" />
-              <p className="mt-3 px-3 pb-1 text-[13px] uppercase tracking-[0.14em] text-chalk-faint">
+          {/* Hours */}
+          <div className="reveal">
+            <p className="kicker">Hours</p>
+            <h2 className="mt-3 font-display text-headline-lg text-chalk">Open Late, Every Day</h2>
+            <span className="gold-rule mt-5 block w-[72px]" />
+            <div className="panel mt-8 rounded p-5">
+              <HoursList />
+              <p className="mt-3 px-3 pb-1 text-[14px] uppercase tracking-[0.14em] text-chalk-faint">
                 Kitchen serves breakfast all day
               </p>
             </div>
-          </div>
-
-          {/* Party inquiry form */}
-          <div className="reveal" ref={formCardRef}>
-            <p className="kicker">Plan Your Party</p>
-            <h2 className="mt-3 font-display text-headline-lg text-chalk">Book The Bar Vibes</h2>
-            <span className="gold-rule mt-5 block w-[72px]" />
-            <p className="mt-5 text-body-md text-chalk-dim">
-              Birthdays, watch parties, league banquets, tell us the date and the headcount and
-              we'll get back to you. For tonight, just call{' '}
-              <a href={company.phoneHref} className="text-gold underline underline-offset-2">
-                {company.phone}
-              </a>
-              .
-            </p>
-
-            {sent ? (
-              <div className="panel mt-8 rounded border-gold/60 p-8 text-center">
-                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold text-on-gold">
-                  <Check size={28} aria-hidden="true" />
-                </span>
-                <h3 className="mt-5 font-display text-headline-md text-chalk">
-                  Thanks{firstName ? `, ${firstName}` : ''}!
-                </h3>
-                <p className="mt-3 text-body-md text-chalk-dim">
-                  Your inquiry is in. We'll get back to you shortly, or call us anytime at{' '}
-                  <a href={company.phoneHref} className="text-gold underline underline-offset-2">
-                    {company.phone}
-                  </a>
-                  .
-                </p>
-              </div>
-            ) : (
-              <form
-                name="party-inquiry"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                onSubmit={onSubmit}
-                className="mt-8 space-y-4"
-              >
-                <input type="hidden" name="form-name" value="party-inquiry" />
-                <p className="hidden">
-                  <label>
-                    Don't fill this out: <input name="bot-field" />
-                  </label>
-                </p>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="sr-only">Your name</span>
-                    <input className={field} type="text" name="name" placeholder="Your name *" required />
-                  </label>
-                  <label className="block">
-                    <span className="sr-only">Phone</span>
-                    <input className={field} type="tel" name="phone" placeholder="Phone *" required />
-                  </label>
-                </div>
-                <label className="block">
-                  <span className="sr-only">Email</span>
-                  <input className={field} type="email" name="email" placeholder="Email" />
-                </label>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="sr-only">Date</span>
-                    <input className={field} type="text" name="date" placeholder="Date you have in mind" />
-                  </label>
-                  <label className="block">
-                    <span className="sr-only">Party size</span>
-                    <input className={field} type="text" name="party-size" placeholder="How many people?" />
-                  </label>
-                </div>
-                <label className="block">
-                  <span className="sr-only">Message</span>
-                  <textarea
-                    className={`${field} min-h-32`}
-                    name="message"
-                    placeholder="What are you planning? *"
-                    required
-                  />
-                </label>
-                {error && (
-                  <p className="text-sm text-error">
-                    Something went wrong sending your message. Please try again, or call us at{' '}
-                    {company.phone}.
-                  </p>
-                )}
-                <button
-                  type="submit"
-                  className="varsity-cta w-full rounded bg-crimson px-8 py-4 font-cond text-[13px] font-bold uppercase tracking-[0.16em] text-on-crimson transition-colors hover:bg-crimson-dark"
-                >
-                  Send Inquiry
-                </button>
-              </form>
-            )}
           </div>
         </div>
       </section>
@@ -266,7 +160,7 @@ export default function Contact() {
         <iframe
           title="Map to KC's Sports Bar, 346 Main St, Wadsworth OH"
           src={company.mapsEmbed}
-          className="h-[420px] w-full grayscale-[35%] contrast-[1.05]"
+          className="h-[460px] w-full"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />

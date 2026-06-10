@@ -17,23 +17,18 @@ export default function Navbar() {
   const [location] = useLocation()
   const scrolled = useScrolled(40)
 
-  // Solid dark bar with the red rule once scrolled (or menu open);
-  // translucent gradient over the hero.
-  const solid = scrolled || open
-
+  // White chrome so the navy/red logo pops; red rule + shadow once scrolled.
   const linkBase =
-    'font-cond text-[15px] font-bold uppercase tracking-[0.14em] px-2 py-2 transition-colors'
+    'font-cond text-[16px] font-bold uppercase tracking-[0.12em] px-2 py-2 transition-colors'
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-        solid
-          ? 'border-b-2 border-crimson bg-pitch/95 backdrop-blur-md'
-          : 'border-b border-transparent bg-gradient-to-b from-black/75 to-transparent'
+      className={`fixed top-0 z-50 w-full border-b-4 border-crimson bg-paper transition-shadow duration-300 ${
+        scrolled || open ? 'shadow-[0_4px_24px_rgba(6,13,31,0.35)]' : ''
       }`}
     >
-      <nav className="container-x flex h-20 items-center justify-between lg:h-24">
-        <Logo className="h-14 lg:h-[4.5rem]" />
+      <nav className="container-x flex h-24 items-center justify-between lg:h-32">
+        <Logo className="h-20 lg:h-28" />
 
         <div className="hidden items-center gap-6 lg:flex">
           {links.map((l) => {
@@ -44,8 +39,8 @@ export default function Navbar() {
                 href={l.href}
                 className={`${linkBase} ${
                   active
-                    ? 'border-b-2 border-crimson text-chalk'
-                    : 'text-chalk-dim hover:text-gold'
+                    ? 'border-b-4 border-crimson text-crimson'
+                    : 'text-ink hover:text-crimson'
                 }`}
               >
                 {l.label}
@@ -54,55 +49,42 @@ export default function Navbar() {
           })}
           <a
             href={company.phoneHref}
-            className={`inline-flex items-center gap-2 ${linkBase} text-chalk hover:text-gold`}
+            className="varsity-cta ml-2 inline-flex items-center gap-2 rounded bg-crimson px-7 py-3.5 font-cond text-[15px] font-bold uppercase tracking-[0.12em] text-on-crimson transition-colors hover:bg-crimson-dark"
           >
-            <Phone size={16} className="text-gold" /> {company.phone}
+            <Phone size={17} /> {company.phone}
           </a>
-          <Link
-            href="/contact"
-            className="varsity-cta inline-flex items-center rounded bg-crimson px-7 py-3.5 font-cond text-[13px] font-bold uppercase tracking-[0.14em] text-on-crimson transition-colors hover:bg-crimson-dark"
-          >
-            Plan Your Party
-          </Link>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="text-chalk lg:hidden"
+          className="text-ink lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
         >
-          {open ? <X size={32} /> : <Menu size={32} />}
+          {open ? <X size={34} /> : <Menu size={34} />}
         </button>
       </nav>
 
       {open && (
-        <div className="border-t border-line-soft bg-pitch lg:hidden">
+        <div className="border-t-2 border-ink/10 bg-paper lg:hidden">
           <div className="container-x flex flex-col gap-1 py-5">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded px-2 py-4 font-cond text-lg font-bold uppercase tracking-[0.14em] text-chalk-dim hover:bg-pitch-3 hover:text-gold"
+                className="rounded px-2 py-4 font-cond text-lg font-bold uppercase tracking-[0.14em] text-ink hover:text-crimson"
               >
                 {l.label}
               </Link>
             ))}
             <a
               href={company.phoneHref}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded border-2 border-gold px-5 py-4 font-cond text-base font-bold uppercase tracking-[0.12em] text-gold"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded bg-crimson px-5 py-4 font-cond text-base font-bold uppercase tracking-[0.12em] text-on-crimson"
             >
-              <Phone size={18} /> {company.phone}
+              <Phone size={18} /> Call {company.phone}
             </a>
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center rounded bg-crimson px-5 py-4 font-cond text-base font-bold uppercase tracking-[0.12em] text-on-crimson"
-            >
-              Plan Your Party
-            </Link>
           </div>
         </div>
       )}

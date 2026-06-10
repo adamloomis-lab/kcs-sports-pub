@@ -1,9 +1,9 @@
 import { Link } from 'wouter'
 
-// KC's slab logo. The artwork lives on a white plate (navy/red lettering needs
-// the light ground), so it sits in a small white chip on the dark chrome.
+// KC's slab logo on the white header chrome (the artwork's own white plate
+// blends right in, no chip needed).
 export default function Logo({
-  className = 'h-12',
+  className = 'h-16',
 }: {
   readonly className?: string
 }) {
@@ -12,9 +12,9 @@ export default function Logo({
       <img
         src="/images/logo-full.png"
         alt="KC's Sports Bar"
-        width={1254}
-        height={1254}
-        className="h-full w-auto rounded bg-white p-1"
+        width={600}
+        height={600}
+        className="h-full w-auto"
       />
     </Link>
   )

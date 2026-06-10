@@ -13,7 +13,6 @@ export const company = {
     "Wadsworth's neighborhood sports bar on Main Street. Cold drinks, scratch-kitchen bar food, breakfast all day, pool, darts and karaoke, open every day from 10am until 2:30am.",
   phone: '(330) 336-5100',
   phoneHref: 'tel:+13303365100',
-  smsHref: 'sms:+13303365100',
   address: {
     street: '346 Main St',
     city: 'Wadsworth',
