@@ -58,8 +58,8 @@ export default function Home() {
             <span className="gold-word">In Wadsworth</span>
           </h1>
           <p className="rise rise-3 mt-8 max-w-xl text-body-lg text-chalk-dim">
-            Every game on the screens, cold drinks at hometown prices, and a kitchen that serves
-            breakfast all day. {company.tagline}
+            Great food hot off the grill, pool, darts and karaoke, and every game on the screens.
+            The best place in Wadsworth to hang out and feel right at home.
           </p>
           <div className="rise rise-4 mt-10 flex flex-wrap gap-4">
             <Button href={company.phoneHref} variant="crimson">
@@ -101,7 +101,7 @@ export default function Home() {
         <div className="container-x grid gap-6 md:grid-cols-12">
           <div className="reveal group relative min-h-[420px] overflow-hidden rounded border-2 border-line-soft md:col-span-8">
             <video
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="absolute inset-0 h-full w-full object-cover object-[center_80%] transition-transform duration-700 group-hover:scale-105"
               src="/videos/burger-grill.mp4"
               autoPlay
               muted
