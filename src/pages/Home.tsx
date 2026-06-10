@@ -102,7 +102,7 @@ export default function Home() {
           <div className="reveal group relative min-h-[420px] overflow-hidden rounded border-2 border-line-soft md:col-span-8">
             <video
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="/videos/beer-macro.mp4"
+              src="/videos/burger-grill.mp4"
               autoPlay
               muted
               loop
