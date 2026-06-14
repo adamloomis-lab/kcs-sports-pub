@@ -149,8 +149,8 @@ export type WeeklyEvent = {
 export const weeklyEvents: WeeklyEvent[] = [
   {
     day: 'Tuesday',
-    title: '$1 Beer Night',
-    blurb: 'You read that right. Select beers are a buck, all night. Bring the whole crew.',
+    title: '$1.50 Beer Night',
+    blurb: 'You read that right. Select beers are just $1.50, all night. Bring the whole crew.',
     accent: 'gold',
   },
   {

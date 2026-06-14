@@ -143,7 +143,7 @@ const FAQS = [
   },
   {
     q: 'What weekly events does KC’s run?',
-    a: 'Tuesday is $1 beer night, Wednesday is the 8pm pool tournament, and Thursday brings ladies night from 5 to 9 followed by karaoke at 9.',
+    a: 'Tuesday is $1.50 beer night, Wednesday is the 8pm pool tournament, and Thursday brings ladies night from 5 to 9 followed by karaoke at 9.',
   },
   {
     q: 'Does KC’s have pool tables and darts?',
@@ -217,9 +217,9 @@ export function getPageMeta(rawPath: string): PageMeta {
       }
     case '/events':
       return {
-        title: "Events & Specials | KC's Sports Bar, Wadsworth OH | Karaoke, Pool & $1 Beers",
+        title: "Events & Specials | KC's Sports Bar, Wadsworth OH | Karaoke, Pool & $1.50 Beers",
         description:
-          'The weekly lineup at KC’s: $1 beer Tuesdays, Wednesday pool tournament at 8, ladies night Thursday 5–9 and karaoke at 9. Pool tables, darts and every game on TV.',
+          'The weekly lineup at KC’s: $1.50 beer Tuesdays, Wednesday pool tournament at 8, ladies night Thursday 5–9 and karaoke at 9. Pool tables, darts and every game on TV.',
         canonical: pageUrl('/events'),
         ogImage,
         jsonLd: [

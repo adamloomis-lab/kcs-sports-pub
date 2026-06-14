@@ -7,7 +7,7 @@ import { company, featurePillars, weeklyEvents } from '../data/site'
 // Scrolling ticker items (duplicated in-render for the infinite loop).
 const tickerItems = [
   { label: 'Open', value: 'EVERY DAY 10AM – 2:30AM' },
-  { label: 'Tuesday', value: '$1 BEER NIGHT' },
+  { label: 'Tuesday', value: '$1.50 BEER NIGHT' },
   { label: 'Wednesday', value: 'POOL TOURNAMENT 8PM' },
   { label: 'Thursday', value: 'KARAOKE 9PM' },
   { label: 'Kitchen', value: 'BREAKFAST ALL DAY' },

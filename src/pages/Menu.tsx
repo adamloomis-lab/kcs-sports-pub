@@ -34,7 +34,7 @@ export default function Menu() {
             <div className="text-center md:text-left">
               <span className="badge-chip !bg-gold !text-on-gold not-italic">Weekly Specials</span>
               <h2 className="mt-4 font-display text-headline-lg uppercase text-white md:text-[40px]">
-                $1 Beer Tuesdays
+                $1.50 Beer Tuesdays
               </h2>
               <p className="mt-2 text-body-lg text-white/85">
                 Plus ladies night Thursday 5–9 with half-price drinks. Ask the bar what else is on
@@ -46,7 +46,7 @@ export default function Menu() {
                 <span className="block font-cond text-xs font-bold uppercase tracking-[0.2em] text-gold">
                   Tue Beers
                 </span>
-                <span className="block font-display text-headline-lg text-white">$1</span>
+                <span className="block font-display text-headline-lg text-white">$1.50</span>
               </div>
               <div className="min-w-[120px] border-2 border-gold bg-pitch/40 p-6 text-center backdrop-blur-md">
                 <span className="block font-cond text-xs font-bold uppercase tracking-[0.2em] text-gold">
