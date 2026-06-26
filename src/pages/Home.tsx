@@ -18,7 +18,7 @@ function TickerRow() {
     <>
       {tickerItems.map((t) => (
         <div key={t.label + t.value} className="flex shrink-0 items-center gap-4">
-          <span className="font-cond text-label-lg font-bold uppercase tracking-[0.2em] text-white/80">
+          <span className="font-cond text-label-lg font-bold uppercase tracking-[0.2em] text-white">
             {t.label}
           </span>
           <span className="bg-pitch-deep px-3 py-1 font-cond font-bold tracking-[0.1em] text-gold">
@@ -133,7 +133,7 @@ export default function Home() {
           <div className="reveal flex flex-col md:col-span-4">
             <div className="flex h-full flex-col justify-between border-2 border-crimson-light/40 bg-crimson p-8">
               <div>
-                <span className="font-cond text-label-lg font-bold uppercase tracking-[0.2em] text-white/70">
+                <span className="font-cond text-label-lg font-bold uppercase tracking-[0.2em] text-white/90">
                   {tonight.day} Night
                 </span>
                 <h3 className="mt-2 font-display text-headline-lg uppercase leading-none text-white md:text-[40px]">
