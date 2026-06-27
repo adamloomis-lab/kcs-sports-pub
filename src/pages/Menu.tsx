@@ -37,7 +37,7 @@ export default function Menu() {
                 $1.50 Beer Tuesdays
               </h2>
               <p className="mt-2 text-body-lg text-white/85">
-                Plus ladies night Thursday 5–9 with half-price drinks. Ask the bar what else is on
+                Plus ladies night Thursday 5-9 with half-price drinks. Ask the bar what else is on
                 special tonight.
               </p>
             </div>

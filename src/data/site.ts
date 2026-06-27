@@ -39,16 +39,16 @@ export const company = {
 // dow matches Date.getDay() (0 = Sun).
 // ---------------------------------------------------------------------------
 export const hours = [
-  { day: 'Sunday', short: 'Sun', dow: 0, time: '10:00 am – 2:30 am' },
-  { day: 'Monday', short: 'Mon', dow: 1, time: '10:00 am – 2:30 am' },
-  { day: 'Tuesday', short: 'Tue', dow: 2, time: '10:00 am – 2:30 am' },
-  { day: 'Wednesday', short: 'Wed', dow: 3, time: '10:00 am – 2:30 am' },
-  { day: 'Thursday', short: 'Thu', dow: 4, time: '10:00 am – 2:30 am' },
-  { day: 'Friday', short: 'Fri', dow: 5, time: '10:00 am – 2:30 am' },
-  { day: 'Saturday', short: 'Sat', dow: 6, time: '10:00 am – 2:30 am' },
+  { day: 'Sunday', short: 'Sun', dow: 0, time: '10:00 am - 2:30 am' },
+  { day: 'Monday', short: 'Mon', dow: 1, time: '10:00 am - 2:30 am' },
+  { day: 'Tuesday', short: 'Tue', dow: 2, time: '10:00 am - 2:30 am' },
+  { day: 'Wednesday', short: 'Wed', dow: 3, time: '10:00 am - 2:30 am' },
+  { day: 'Thursday', short: 'Thu', dow: 4, time: '10:00 am - 2:30 am' },
+  { day: 'Friday', short: 'Fri', dow: 5, time: '10:00 am - 2:30 am' },
+  { day: 'Saturday', short: 'Sat', dow: 6, time: '10:00 am - 2:30 am' },
 ]
 
-export const hoursCompact = [{ day: 'Every day', time: '10 am – 2:30 am' }]
+export const hoursCompact = [{ day: 'Every day', time: '10 am - 2:30 am' }]
 
 // Schema.org openingHoursSpecification (closes after midnight).
 export const openingHours = [
@@ -170,7 +170,7 @@ export const weeklyEvents: WeeklyEvent[] = [
   {
     day: 'Thursday',
     title: 'Ladies Night',
-    time: '5:00 – 9:00 PM',
+    time: '5:00 - 9:00 PM',
     blurb: 'Half-price drinks for the ladies before karaoke kicks off. The perfect warm-up act.',
     accent: 'crimson',
   },

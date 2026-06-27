@@ -41,7 +41,7 @@ export default function Accessibility() {
       <h2>Report an issue</h2>
       <p>
         If you encounter any accessibility barrier on this site, please reach out and we will
-        address it promptly. Call us at <a href={company.phoneHref}>{company.phone}</a> — we are
+        address it promptly. Call us at <a href={company.phoneHref}>{company.phone}</a>. We are
         happy to help.
       </p>
     </LegalLayout>

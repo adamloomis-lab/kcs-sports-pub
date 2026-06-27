@@ -219,7 +219,7 @@ export function getPageMeta(rawPath: string): PageMeta {
       return {
         title: "Events & Specials | KC's Sports Bar, Wadsworth OH | Karaoke, Pool & $1.50 Beers",
         description:
-          'The weekly lineup at KC’s: $1.50 beer Tuesdays, Wednesday pool tournament at 8, ladies night Thursday 5–9 and karaoke at 9. Pool tables, darts and every game on TV.',
+          'The weekly lineup at KC’s: $1.50 beer Tuesdays, Wednesday pool tournament at 8, ladies night Thursday 5-9 and karaoke at 9. Pool tables, darts and every game on TV.',
         canonical: pageUrl('/events'),
         ogImage,
         jsonLd: [

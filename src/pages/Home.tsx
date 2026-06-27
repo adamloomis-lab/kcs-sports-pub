@@ -6,7 +6,7 @@ import { company, featurePillars, weeklyEvents } from '../data/site'
 
 // Scrolling ticker items (duplicated in-render for the infinite loop).
 const tickerItems = [
-  { label: 'Open', value: 'EVERY DAY 10AM – 2:30AM' },
+  { label: 'Open', value: 'EVERY DAY 10AM - 2:30AM' },
   { label: 'Tuesday', value: '$1.50 BEER NIGHT' },
   { label: 'Wednesday', value: 'POOL TOURNAMENT 8PM' },
   { label: 'Thursday', value: 'KARAOKE 9PM' },
@@ -71,7 +71,7 @@ export default function Home() {
           </div>
           <p className="rise rise-5 mt-8 inline-flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-chalk-faint">
             <span className="inline-flex items-center gap-2">
-              <Clock size={15} className="text-gold" /> Open every day 10am – 2:30am
+              <Clock size={15} className="text-gold" /> Open every day 10am - 2:30am
             </span>
             <a
               href={company.mapsDir}
